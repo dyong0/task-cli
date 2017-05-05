@@ -1,9 +1,9 @@
 {
-  "name": "todolist-cli",
+  "name": "task-cli",
   "version": "0.1.0",
-  "description": "Todo list CLI",
+  "description": "Task management with command line interface",
   "bin": {
-    "todo": "./build/dist/todo"
+    "task": "./build/dist/task"
   },
   "dependencies": {},
   "devDependencies": {
@@ -32,18 +32,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dyong0/todolist-cli.git"
+    "url": "git+https://github.com/dyong0/task-cli.git"
   },
   "keywords": [
+    "task",
+    "task management",
     "todo",
-    "todos",
     "todolist",
     "cli"
   ],
   "author": "dyong0",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dyong0/todolist-cli/issues"
+    "url": "https://github.com/dyong0/task-cli/issues"
   },
-  "homepage": "https://github.com/dyong0/todolist-cli#readme"
+  "homepage": "https://github.com/dyong0/task-cli#readme"
 }

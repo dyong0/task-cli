@@ -17,7 +17,7 @@ const buildDistPath = 'build/dist';
 const specBuildGlobs = ['build/src/spec/**/*.spec.js'];
 
 const distEntry = 'build/src/index.js'
-const binaryFileName = 'todo';
+const binaryFileName = 'task';
 
 const tasks = {
     clean: function () {

@@ -1,2 +1,1 @@
-# todolist-cli
-Todo list CLI
+# NO README

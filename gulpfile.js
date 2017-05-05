@@ -38,7 +38,7 @@ const tasks = {
 
     test: function (cb) {
         return gulp.src(specBuildGlobs, { read: false })
-            .pipe(mocha({ reporter: 'nyan' }));
+            .pipe(mocha({ reporter: 'spec' }));
     },
 
     compile: function (cb) {

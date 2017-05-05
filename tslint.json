@@ -4,6 +4,10 @@
   ],
   "rules": {
     "no-constant-condition": true,
-    "no-extra-semi": true
+    "no-extra-semi": true,
+    "semicolon": [
+      true,
+      "always"
+    ]
   }
 }

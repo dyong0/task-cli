@@ -1,0 +1,27 @@
+{
+    "version": "0.1.0", // Update version when you commit this file
+    "configurations": [
+        /*
+         * Debug tests
+         * It runs Mocha directly, not using package managers and other build systems
+         * Direct running Mocha is necessary for debugging tests with uncompiled typescripts
+         * Confirm the arguments given. They might be wrong as this project keeps changing.
+         */
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Mocha in debug",
+            "protocol": "inspector",
+            "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
+            "args": [
+                "-u",
+                "bdd",
+                "--colors",
+                "--no-timeouts",
+                "-r",
+                "ts-node/register",
+                "${workspaceRoot}/src/spec/**/*.spec.ts"
+            ]
+        }
+    ]
+}

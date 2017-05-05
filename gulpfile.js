@@ -6,7 +6,7 @@ const tslint = require('gulp-tslint');
 const insert = require('gulp-insert');
 const chmod = require('gulp-chmod');
 const webpack = require('gulp-webpack');
-const clean = require('gulp-clean');
+const del = require('del');
 
 const tsProject = ts.createProject('tsconfig.json');
 
@@ -21,8 +21,7 @@ const binaryFileName = 'task';
 
 const tasks = {
     clean: function () {
-        return gulp.src(buildPath)
-            .pipe(clean());
+        del(buildPath);
     },
 
     lint: function (cb) {

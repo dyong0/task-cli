@@ -65,3 +65,6 @@ Session.vim
 *~
 # auto-generated tag files
 tags
+
+# Project specific
+build

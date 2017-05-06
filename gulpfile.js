@@ -47,6 +47,8 @@ const tasks = {
     },
 
     watch: function (cb) {
+        tasks.lint(cb);
+        tasks.test(cb);
         return gulp.watch(srcGlobs, ["lint", "test"]);
     },
 
@@ -64,5 +66,5 @@ gulp.task("clean", tasks.clean);
 gulp.task("lint", tasks.lint);
 gulp.task("compile", ["lint"], tasks.compile);
 gulp.task("test", ["compile"], tasks.test);
-gulp.task("watch", ["lint", "test"], tasks.watch);
+gulp.task("watch", tasks.watch);
 gulp.task("build", ["clean", "test", "compile"], tasks.build);

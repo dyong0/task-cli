@@ -1,12 +1,11 @@
-import App from '../app';
-import * as Chai from 'chai';
-const expect = Chai.expect;
+import App from "../app";
+import {expect} from "chai";
 
-describe('App', () => {
-  describe('#hello()', () => {
-    it('should result in hello', () => {
+describe("App", () => {
+  describe("#hello()", () => {
+    it("should result in hello", () => {
       const app = new App();
-      expect(app.hello()).to.eq('hello');
+      expect(app.hello()).to.eq("hello");
     });
   });
 });

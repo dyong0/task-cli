@@ -8,6 +8,11 @@
     "semicolon": [
       true,
       "always"
-    ]
+    ],
+    "quotemark": [
+      true,
+      "double"
+    ],
+    "no-trailing-whitespace": true
   }
 }

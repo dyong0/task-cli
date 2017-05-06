@@ -47,8 +47,12 @@ const tasks = {
     },
 
     watch: function (cb) {
-        tasks.lint(cb);
-        tasks.test(cb);
+        console.info("Running dependant tasks..");
+        tasks.clean();
+        tasks.lint();
+        tasks.compile();
+        tasks.test();
+
         return gulp.watch(srcGlobs, ["lint", "test"]);
     },
 

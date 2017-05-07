@@ -71,3 +71,6 @@ build
 dist
 src/**/*.js
 spec/**/*.js
+
+### VSCode ###
+.vscode/settings.json

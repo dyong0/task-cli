@@ -68,3 +68,6 @@ tags
 
 # Project specific
 build
+dist
+src/**/*.js
+spec/**/*.js

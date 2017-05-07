@@ -20,7 +20,7 @@
                 "--no-timeouts",
                 "-r",
                 "ts-node/register",
-                "${workspaceRoot}/src/spec/**/*.spec.ts"
+                "${workspaceRoot}/spec/**/*.spec.ts"
             ]
         }
     ]

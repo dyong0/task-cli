@@ -6,22 +6,29 @@ const tslint = require("gulp-tslint");
 const insert = require("gulp-insert");
 const chmod = require("gulp-chmod");
 const webpack = require("gulp-webpack");
+const copy = require("gulp-copy");
 const del = require("del");
 
 const tsProject = ts.createProject("tsconfig.json");
 
-const srcGlobs = ["src/**/*.ts"];
-const buildPath = "build";
-const compilePath = "build/src";
-const buildDistPath = "build/dist";
-const specBuildGlobs = ["build/src/spec/**/*.spec.js"];
+const srcGlobs = ["**/*.ts", "!node_modules/**"];
+const compilePath = ".";
 
-const distEntry = "build/src/index.js"
+const compileGlobs = ["src/**/*.js"];
+
+const specBuildGlobs = ["spec/**/*.spec.js"];
+
+const buildPath = "dist";
+const srcEntry = "src/index.js"
+
+const resourceDirRelativePath = "resource"
+const resourceGlobs = [resourceDirRelativePath + "/**"];
+
 const binaryFileName = "task";
 
 const tasks = {
     clean: function () {
-        del(buildPath);
+        return del(compileGlobs.concat(specBuildGlobs, [buildPath]));
     },
 
     lint: function (cb) {
@@ -57,11 +64,14 @@ const tasks = {
     },
 
     build: function (cb) {
-        gulp.src(distEntry)
+        gulp.src(srcEntry)
             .pipe(webpack({ output: { filename: binaryFileName } }))
             .pipe(insert.prepend("#!/usr/bin/env node\n"))
             .pipe(chmod({ execute: true }))
-            .pipe(gulp.dest(buildDistPath))
+            .pipe(gulp.dest(buildPath))
+            .pipe(gulp.src(resourceGlobs))
+            .pipe(copy(resourceDirRelativePath))
+            .pipe(gulp.dest(buildPath))
             .pipe(notify("Build success!"));
     }
 };

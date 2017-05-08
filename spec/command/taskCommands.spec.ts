@@ -1,8 +1,10 @@
 import { expect } from "chai";
 import { sandbox, spy } from "sinon";
 import Command from "../../src/command/Command";
-import { ListCommand, AddCommand, DeleteCommand, CompleteCommand } from "../../src/command/taskCommands";
+import { ListCommand, AddCommand, DeleteCommand, CompleteCommand, OpenNewTaskWithEditorCommand } from "../../src/command/taskCommands";
 import { taskService } from "../../src/task/TaskService";
+import * as child_process from "child_process";
+import { editorPath, newTaskFilePath } from "../../src/settings";
 
 const testSandbox = sandbox.create();
 
@@ -49,22 +51,6 @@ describe("AddCommand", () => {
                 expect(methodSpy.called).to.be.true;
                 expect(methodSpy.alwaysCalledOn(taskService)).to.be.true;
             });
-        });
-
-        context("when plain text and extra parameters are given", () => {
-            it("shoud call the method of taskService 'addTask'", () => {
-                const methodSpy = testSandbox.spy(taskService, "addTask");
-                addCommand.args = ["task name", 1];
-                addCommand.execute(taskService);
-
-                expect(methodSpy.called).to.be.true;
-                expect(methodSpy.alwaysCalledOn(taskService)).to.be.true;
-            });
-        });
-
-        context("when anything is not given", () => {
-            it("should call its method addTaskAsync");
-            it("should call the method of taskService 'addTask'");
         });
     });
 });
@@ -133,6 +119,44 @@ describe("CompleteCommand", () => {
 
                 expect(methodSpy.called).to.be.true;
             });
+        });
+    });
+});
+
+describe("OpenNewTaskWithEditorCommand", () => {
+    let command: OpenNewTaskWithEditorCommand;
+
+    beforeEach(() => {
+        command = new OpenNewTaskWithEditorCommand();
+    });
+
+    afterEach(function () {
+        testSandbox.restore();
+    });
+
+    describe("#execute()", () => {
+        it("shoud call its method 'openNewTaskWithEditor'", () => {
+            const methodSpy = testSandbox.spy(command, "openNewTaskWithEditor");
+            command.execute(command);
+
+            expect(methodSpy.called).to.be.true;
+            expect(methodSpy.alwaysCalledOn(command)).to.be.true;
+        });
+
+        it("should return a promise'", () => {
+            const methodSpy = testSandbox.spy(command, "openNewTaskWithEditor");
+            command.execute(command);
+
+            expect(methodSpy.returnValues.every((r) => r instanceof Promise)).to.be.true;
+        });
+    });
+
+    describe("#openNewTaskWithEditor", () => {
+        it("should spawn an editor process editing a new task file", () => {
+            const spawnSync = testSandbox.spy(child_process, "spawnSync");
+            command.execute(command);
+
+            expect(spawnSync.calledWith(editorPath, [newTaskFilePath])).to.be.true;
         });
     });
 });

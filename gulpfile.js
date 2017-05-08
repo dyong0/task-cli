@@ -44,7 +44,7 @@ const tasks = {
 
     test: function (cb) {
         return gulp.src(specBuildGlobs, { read: false })
-            .pipe(mocha({ reporter: "spec" }));
+            .pipe(mocha({ reporter: "min" }));
     },
 
     compile: function (cb) {

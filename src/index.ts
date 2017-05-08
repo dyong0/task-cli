@@ -1,4 +1,1 @@
-import App from "./app";
-
-const app = new App();
-console.log(app.hello());
+// No index.js yet

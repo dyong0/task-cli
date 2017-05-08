@@ -12,6 +12,9 @@
             "request": "launch",
             "name": "Mocha in debug",
             "protocol": "inspector",
+            "env": {
+                "NODE_ENV":"test"
+            },
             "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
             "args": [
                 "-u",

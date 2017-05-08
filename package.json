@@ -11,6 +11,7 @@
     "@types/gulp": "^4.0.2",
     "@types/mocha": "^2.2.41",
     "@types/node": "^7.0.18",
+    "@types/sinon": "^2.2.1",
     "chai": "^3.5.0",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
@@ -24,14 +25,15 @@
     "gulp-typescript": "^3.1.6",
     "gulp-webpack": "^1.5.0",
     "mocha": "^3.3.0",
+    "sinon": "^2.2.0",
     "tslint": "^5.2.0",
     "tslint-eslint-rules": "^4.0.0",
     "typescript": "^2.3.2"
   },
   "scripts": {
-    "build": "./node_modules/gulp/bin/gulp.js build",
-    "test": "./node_modules/gulp/bin/gulp.js test",
-    "watch": "./node_modules/gulp/bin/gulp.js watch"
+    "build": "NODE_ENV=prod ./node_modules/gulp/bin/gulp.js build",
+    "test": "NODE_ENV=test ./node_modules/gulp/bin/gulp.js test",
+    "watch": "NODE_ENV=dev ./node_modules/gulp/bin/gulp.js watch"
   },
   "repository": {
     "type": "git",

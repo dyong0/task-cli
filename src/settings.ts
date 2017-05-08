@@ -42,3 +42,7 @@ export const outStream = (() => {
 
     throw new EnvironmentNotFound();
 })();
+
+export const editorPath = "$EDITOR";
+
+export const newTaskFilePath = "/tmp/new.task";

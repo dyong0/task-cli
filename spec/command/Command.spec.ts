@@ -25,10 +25,7 @@ describe("Command", () => {
 
     describe("#execute()", () => {
         it("should throw an error when executor is not given", () => {
-            const methodSpy = testSandbox.spy(testCommand, "testMethod");
-            testCommand.execute();
-
-            expect(methodSpy).to.throw(ExecutorNotFound);
+            expect(testCommand.execute.bind(testCommand)).to.throw(ExecutorNotFound);
         });
 
         it("should call its method 'testMethod' when itself is given as the executor", () => {

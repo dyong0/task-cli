@@ -19,7 +19,8 @@ describe("HelpCommand", () => {
     describe("#execute()", () => {
         it("should call its method 'getHelpMessage'", () => {
             const methodSpy = testSandbox.spy(helpCommand, "getHelpMessage");
-            helpCommand.execute(helpCommand);
+            helpCommand.executor = helpCommand;
+            helpCommand.execute();
 
             expect(methodSpy.called).to.be.true;
         });
@@ -40,7 +41,8 @@ describe("InteractiveModeCommand", () => {
     describe("#execute()", () => {
         it("shoud call its method 'interactiveMode'", () => {
             const methodSpy = testSandbox.spy(interactiveModeCommand, "interactiveMode");
-            interactiveModeCommand.execute(interactiveModeCommand);
+            interactiveModeCommand.executor = interactiveModeCommand;
+            interactiveModeCommand.execute();
 
             expect(methodSpy.called).to.be.true;
         });

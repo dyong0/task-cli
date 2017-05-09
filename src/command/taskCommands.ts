@@ -9,8 +9,8 @@ export class ListCommand extends Command {
         return "getTaskListFormatted";
     }
 
-    execute(executor: TaskService): string {
-        super.execute(executor);
+    execute(): string {
+        super.execute();
         return "";
     }
 }
@@ -19,8 +19,8 @@ export class AddCommand extends Command {
         return "addTask";
     }
 
-    execute(executor: TaskService): string {
-        super.execute(executor);
+    execute(): string {
+        super.execute();
         return "";
     }
 }
@@ -33,8 +33,8 @@ export class DeleteCommand extends Command {
         return "deleteTask";
     }
 
-    execute(executor: TaskService): string {
-        super.execute(executor);
+    execute(): string {
+        super.execute();
         return "";
     }
 }
@@ -47,8 +47,8 @@ export class CompleteCommand extends Command {
         return "completeTask";
     }
 
-    execute(executor: TaskService): string {
-        super.execute(executor);
+    execute(): string {
+        super.execute();
         return "";
     }
 }
@@ -64,7 +64,7 @@ export class OpenNewTaskWithEditorCommand extends AsyncCommand<string[]> {
         });
     }
 
-    execute(executor: OpenNewTaskWithEditorCommand): Promise<string[]> {
-        return super.execute(executor);
+    execute(): Promise<string[]> {
+        return super.execute();
     }
 }

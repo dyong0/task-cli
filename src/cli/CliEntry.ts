@@ -53,7 +53,8 @@ export class CliEntry {
                 break;
         }
 
-        this.out.write(command.execute(executor).toString());
+        command.executor = executor;
+        this.out.write(command.execute().toString());
     }
 }
 

@@ -68,3 +68,9 @@ export class OpenNewTaskWithEditorCommand extends AsyncCommand<string[]> {
         return super.execute();
     }
 }
+export class TaskFuzzyFinderCommand extends Command {
+    protected getRunnableName(): string {
+        return "";
+    }
+
+}

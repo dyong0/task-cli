@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { sandbox, spy } from "sinon";
 import { parseListCommand, parseCompleteCommand, parseDeleteCommand, parseAddCommand } from "../../src/command/taskCommandParsers";
-import { ListCommand, CompleteCommand, AddCommand, DeleteCommand, OpenNewTaskWithEditorCommand } from "../../src/command/taskCommands";
+import { ListCommand, CompleteCommand, AddCommand, DeleteCommand, OpenNewTaskWithEditorCommand, TaskFuzzyFinderCommand } from "../../src/command/taskCommands";
 
 describe("parseListCommand", () => {
     context("when any parameter is not given", () => {
